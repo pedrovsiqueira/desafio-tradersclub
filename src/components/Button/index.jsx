@@ -5,7 +5,7 @@ import { StyledButton } from './styles';
 const Button = ({ children, ...rest }) => {
   return (
     <Link to="/cars/new">
-      <StyledButton {...rest}>{children}</StyledButton>;
+      <StyledButton {...rest}>{children}</StyledButton>
     </Link>
   );
 };

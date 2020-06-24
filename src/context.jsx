@@ -6,42 +6,12 @@ const Context = createContext({});
 const ContextProvider = ({ children }) => {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [cars, setCars] = useState([]);
-  const [carId, setCarId] = useState(0);
-  const [carDetails, setCarDetails] = useState({
-    id: '',
-    title: '',
-    model: '',
-    brand: '',
-    year: '',
-    km: '',
-    price: '',
-  });
+  const [brands, setBrands] = useState([]);
 
   const handleInputChange = (inputValue) => {
     const { value } = inputValue.current;
     setSearchInputValue(value);
   };
-
-  useEffect(() => {
-    const response = async () => {
-      if (carId !== 0) {
-        const { data } = await api.get(`cars/${carId}`);
-        const { id, title, model, brand, year, km, price } = data;
-        setCarDetails({
-          id,
-          title,
-          model,
-          brand,
-          year,
-          km,
-          price,
-        });
-      }
-    };
-    response();
-  }, [carId]);
-
-  console.log(carDetails);
 
   const handleRegister = () => {
     console.log('click me');
@@ -53,6 +23,8 @@ const ContextProvider = ({ children }) => {
       const response = async () => {
         try {
           const { data } = await api.get(`cars?q=${searchInputValue}`);
+          const response = await api.get('brands');
+          setBrands(response.data);
           setCars(data);
         } catch (err) {
           console.log(err);
@@ -63,6 +35,8 @@ const ContextProvider = ({ children }) => {
     return () => clearTimeout(timeoutId);
   }, [searchInputValue]);
 
+  console.log(brands);
+
   return (
     <Context.Provider
       value={{
@@ -70,7 +44,7 @@ const ContextProvider = ({ children }) => {
         handleRegister,
         searchInputValue,
         cars,
-        setCarId,
+        brands,
       }}
     >
       {children}

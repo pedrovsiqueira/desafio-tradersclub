@@ -4,8 +4,8 @@ export const StyledInput = styled.input`
   width: 70%;
   max-width: 720px;
   color: #f4f2f1;
-  background: none;
   border: solid 1px #aaa;
+  background: none;
   font-size: 2rem;
   padding: 10px;
   height: 40px;

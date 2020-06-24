@@ -38,3 +38,59 @@ export const StyledList = styled.ul`
   height: 100%;
   padding: 80px;
 `;
+
+export const Form = styled.form`
+  margin: auto 0;
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  input {
+    font-size: 2rem;
+    padding: 10px;
+  }
+`;
+
+export const StyledButtons = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SecondaryButtons = styled.div`
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background: transparent;
+    color: #f4f2f1;
+    border: solid 1px #aaa;
+    padding: 0px;
+  }
+`;
+
+export const StyledCarDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 370px;
+  }
+`;
+
+export const StyledCarDetail = styled.div`
+  input {
+    width: 370px;
+  }
+`;
+
+export const StyledSelect = styled.select`
+  background: none;
+  color: #f4f2f1;
+  border: solid 1px #aaa;
+  height: 30px;
+  font-size: 1.6rem;
+`;

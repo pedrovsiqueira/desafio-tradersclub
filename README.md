@@ -1,6 +1,6 @@
 # Traders Club Challenge
 
-![Traders Club Challenge](/public/2Sow.png)
+![Traders Club Challenge](/public/tc.png)
 
 ## About The Project
 

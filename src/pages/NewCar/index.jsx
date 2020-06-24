@@ -2,18 +2,18 @@ import React from 'react';
 import { Container, Content } from './styles';
 import LeftBar from '../../components/LeftBar/index';
 import Header from '../../components/Header/index';
-import EditCar from '../../components/EditCar/index';
+import AddNewCar from '../../components/AddNewCar/index';
 
-const Car = () => {
+const Home = () => {
   return (
     <Container>
       <LeftBar />
       <Content>
         <Header />
-        <EditCar />
+        <AddNewCar />
       </Content>
     </Container>
   );
 };
 
-export default Car;
+export default Home;

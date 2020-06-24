@@ -16,21 +16,20 @@ const ContextProvider = ({ children }) => {
     console.log('click me');
   };
 
-  const response = async () => {
-    try {
-      const { data } = await api.get(`cars?q=${searchInputValue}`);
-      setCars(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
     //timer to prevent excessive api requests
     const timeoutId = setTimeout(() => {
+      const response = async () => {
+        try {
+          const { data } = await api.get(`cars?q=${searchInputValue}`);
+          setCars(data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
       response();
     }, 400);
-
     return () => clearTimeout(timeoutId);
   }, [searchInputValue]);
 

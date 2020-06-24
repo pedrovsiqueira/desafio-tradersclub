@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, StyledNav } from './styles';
+import { Container, Content } from './styles';
 import LeftBar from '../../components/LeftBar/index';
 import Header from '../../components/Header/index';
 import MainContent from '../../components/MainContent/index';
@@ -10,7 +10,7 @@ const Home = () => {
       <LeftBar />
       <Content>
         <Header />
-        <MainContent type="Home" />
+        <MainContent />
       </Content>
     </Container>
   );

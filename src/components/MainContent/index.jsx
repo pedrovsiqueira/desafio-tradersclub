@@ -9,7 +9,7 @@ const MainContent = ({ type, rest }) => {
   return (
     <Container type={type} {...rest}>
       <Content>
-        {!searchInputValue && type ? (
+        {!searchInputValue ? (
           <h1>
             Pesquisa de veículos do <span>TradersClub</span>
           </h1>

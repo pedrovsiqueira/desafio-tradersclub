@@ -8,7 +8,7 @@ Implement a CRUD application with search, list, creation, edition and deletion.
 
 ### Built With:
 
-- [Typescript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+- [Javascript](https://nodejs.org/en/) - Programming language.
 - [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
 - [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
 

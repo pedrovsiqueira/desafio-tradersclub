@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledButton } from './styles';
+import { Context } from '../../context';
 
-const Button = () => {
-  return <StyledButton></StyledButton>;
+const Button = ({ children, ...rest }) => {
+  const { handleRegister } = useContext(Context);
+  return (
+    <StyledButton onClick={handleRegister} {...rest}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;

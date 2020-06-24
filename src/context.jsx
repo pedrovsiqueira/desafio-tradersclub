@@ -10,10 +10,14 @@ const ContextProvider = ({ children }) => {
     setSearchInputValue(value);
   };
 
+  const handleRegister = () => {
+    console.log('click me');
+  };
+
   console.log(searchInputValue);
 
   return (
-    <Context.Provider value={{ handleInputChange }}>
+    <Context.Provider value={{ handleInputChange, handleRegister }}>
       {children}
     </Context.Provider>
   );

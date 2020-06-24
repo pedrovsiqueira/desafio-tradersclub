@@ -3,7 +3,7 @@ import { Container, Content } from './styles';
 import { Context } from '../../context';
 
 const MainContent = ({ type, rest }) => {
-  const { searchInputValue } = useContext(Context);
+  const { searchInputValue, cars } = useContext(Context);
 
   return (
     <Container type={type}>

@@ -17,7 +17,9 @@ const ContextProvider = ({ children }) => {
   console.log(searchInputValue);
 
   return (
-    <Context.Provider value={{ handleInputChange, handleRegister }}>
+    <Context.Provider
+      value={{ handleInputChange, handleRegister, searchInputValue }}
+    >
       {children}
     </Context.Provider>
   );

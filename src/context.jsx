@@ -18,11 +18,13 @@ const ContextProvider = ({ children }) => {
     price: 0,
   });
 
+  //handle inputchage for search input
   const handleInputChange = (inputValue) => {
     const { value } = inputValue.current;
     setSearchInputValue(value);
   };
 
+  //handle input changes to inputs inside form
   const handleFormInputChange = (formInputValue) => {
     const { name, value } = formInputValue.current;
     setCarDetails({
@@ -31,6 +33,7 @@ const ContextProvider = ({ children }) => {
     });
   };
 
+  //method to save altered car
   const handleSave = async (id) => {
     setSearchInputValue('');
     try {
@@ -40,6 +43,7 @@ const ContextProvider = ({ children }) => {
     }
   };
 
+  //method to remove car
   const handleRemove = async (id) => {
     setSearchInputValue('');
     try {
@@ -49,16 +53,16 @@ const ContextProvider = ({ children }) => {
     }
   };
 
+  //method for cancel button
   const handleCancel = () => {
     setSearchInputValue('');
   };
 
+  //method to check for input changes before saving to state
   const handleFormInputNewCar = (formInputValue) => {
     console.log(formInputValue.current.select);
 
     const { name, value } = formInputValue.current;
-
-    // console.log(name, value);
 
     setNewCar({
       ...newCar,
@@ -66,8 +70,8 @@ const ContextProvider = ({ children }) => {
     });
   };
 
+  //method for adding new car to db
   const handleAddNewCar = async () => {
-    console.log(newCar);
     setSearchInputValue('');
     try {
       await api.post(`/cars/`, newCar);

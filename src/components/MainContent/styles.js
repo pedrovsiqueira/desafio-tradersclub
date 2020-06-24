@@ -4,7 +4,6 @@ import background from '../../assets/car-wireframe.png';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  font-family: 'Lobster Two', cursive;
 `;
 
 export const Content = styled.div`
@@ -18,14 +17,24 @@ export const Content = styled.div`
   justify-content: center;
 
   h1 {
+    font-family: 'Lobster Two', cursive;
     background: transparent;
     margin: 50px auto;
     width: 75%;
     text-align: end;
+    font-weight: 400;
+    padding-right: 35px;
   }
 
   span {
-    background-color: #2d4869;
+    background-color: rgba(45, 72, 105, 0.7);
     padding: 5px 10px;
   }
+`;
+
+export const StyledList = styled.ul`
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  padding: 80px;
 `;

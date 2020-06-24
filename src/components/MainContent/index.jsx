@@ -1,19 +1,24 @@
 import React, { useContext } from 'react';
-import { Container, Content } from './styles';
+import { Container, Content, StyledList } from './styles';
 import { Context } from '../../context';
+import Card from '../Card/index';
 
 const MainContent = ({ type, rest }) => {
   const { searchInputValue, cars } = useContext(Context);
 
   return (
-    <Container type={type}>
+    <Container type={type} {...rest}>
       <Content>
         {!searchInputValue && type ? (
           <h1>
             Pesquisa de veículos do <span>TradersClub</span>
           </h1>
         ) : (
-          <div>not oi</div>
+          <StyledList>
+            {cars.map((car) => (
+              <Card key={car.id} {...car} />
+            ))}
+          </StyledList>
         )}
       </Content>
     </Container>

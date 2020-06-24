@@ -1,16 +1,37 @@
 import React from 'react';
-import { Container } from './styles';
+import { Link } from 'react-router-dom';
+import {
+  Container,
+  StyledCarPrimaryInfo,
+  StyledCarSecundaryInfo,
+} from './styles';
 
-const Card = () => {
+const Card = ({ id, title, model, brand, year, km, price }) => {
+  const formattedPrice = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(price);
+
   return (
-    <Container>
-      <StyledCarMainInfo>
-        <p>Celta Azul 2005 Ar e Direção</p>
-        <p>Celta - Chevrolet - 106.041 KM</p>
-      </StyledCarMainInfo>
+    <Link to={`/cars/${id}`}>
+      <Container>
+        <StyledCarPrimaryInfo>
+          <p>
+            <strong>{title}</strong>
+          </p>
+          <p>
+            {model} &#8226; {brand} &#8226; {km} &#8226; KM
+          </p>
+        </StyledCarPrimaryInfo>
 
-      <StyledCarMainInfo>R$ 11.772,22 2005</StyledCarMainInfo>
-    </Container>
+        <StyledCarSecundaryInfo>
+          <p>
+            <strong>{formattedPrice}</strong>
+          </p>
+          <p>{year}</p>
+        </StyledCarSecundaryInfo>
+      </Container>
+    </Link>
   );
 };
 

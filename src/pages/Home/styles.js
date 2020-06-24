@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
-  overflow-x: hidden;
 `;
 
 export const StyledNav = styled.nav`
@@ -20,7 +19,7 @@ export const StyledNav = styled.nav`
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  width: calc(100vw - 300px);
   display: flex;
   flex-direction: column;
 `;

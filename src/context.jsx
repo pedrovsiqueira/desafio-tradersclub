@@ -7,7 +7,7 @@ const ContextProvider = ({ children }) => {
   const [searchInputValue, setSearchInputValue] = useState('');
   const [cars, setCars] = useState([]);
 
-  const handleInputChange = inputValue => {
+  const handleInputChange = (inputValue) => {
     const { value } = inputValue.current;
     setSearchInputValue(value);
   };
@@ -16,16 +16,22 @@ const ContextProvider = ({ children }) => {
     console.log('click me');
   };
 
+  const response = async () => {
+    try {
+      const { data } = await api.get(`cars?q=${searchInputValue}`);
+      setCars(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    const response = async () => {
-      try {
-        const { data } = await api.get(`cars?q=${searchInputValue}`);
-        setCars(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    response();
+    //timer to prevent excessive api requests
+    const timeoutId = setTimeout(() => {
+      response();
+    }, 400);
+
+    return () => clearTimeout(timeoutId);
   }, [searchInputValue]);
 
   console.log(cars);

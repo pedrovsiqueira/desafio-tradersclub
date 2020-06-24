@@ -3,7 +3,16 @@ import React, { createContext, useState, useEffect } from 'react';
 const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
-  return <Context.Provider value="">{children}</Context.Provider>;
+  const handleInputChange = inputValue => {
+    const { value } = inputValue.current;
+    console.log(value);
+  };
+
+  return (
+    <Context.Provider value={{ handleInputChange }}>
+      {children}
+    </Context.Provider>
+  );
 };
 
 export { ContextProvider, Context };

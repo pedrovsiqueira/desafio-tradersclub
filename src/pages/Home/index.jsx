@@ -1,7 +1,8 @@
 import React from 'react';
+import Input from '../../components/Input/index';
 
 const Home = () => {
-  return <div>this is my home page</div>;
+  return <Input />;
 };
 
 export default Home;

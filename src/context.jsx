@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-
+import axios from 'axios';
 const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
@@ -14,7 +14,7 @@ const ContextProvider = ({ children }) => {
     console.log('click me');
   };
 
-  console.log(searchInputValue);
+  useEffect(() => {});
 
   return (
     <Context.Provider

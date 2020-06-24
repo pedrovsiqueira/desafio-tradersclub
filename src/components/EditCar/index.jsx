@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Container,
@@ -14,27 +14,25 @@ import { Context } from '../../context';
 import FormInput from '../FormInput/index';
 import { api } from '../../services/api';
 import Button from '../Button/index';
+import { Link } from 'react-router-dom';
 
-const MainContent = ({ title, rest }) => {
-  const { brands } = useContext(Context);
+const MainContent = (props) => {
+  const {
+    brands,
+    carDetails,
+    setCarDetails,
+    handleSave,
+    handleRemove,
+    handleCancel,
+  } = useContext(Context);
   const { id } = useParams();
-  const [carId, setCarId] = id;
-  const [carDetails, setCarDetails] = useState({
-    id: '',
-    title: '',
-    model: '',
-    brand: '',
-    year: '',
-    km: '',
-    price: '',
-    color: '',
-  });
+  const [carId, setCarId] = useState(id);
 
   useEffect(() => {
-    const response = async () => {
-      const { data } = await api.get(`cars/${carId}`);
-      const { id, title, model, brand, year, km, price, color } = data;
-
+    setCarId(id);
+    console.log('inside useeffect', carId);
+    api.get(`cars/${carId}`).then((resp) => {
+      const { id, title, model, brand, year, km, price, color } = resp.data;
       setCarDetails({
         id,
         title,
@@ -45,27 +43,26 @@ const MainContent = ({ title, rest }) => {
         price,
         color,
       });
-    };
-    response();
-  }, []);
+    });
+  }, [carId, setCarDetails, id]);
 
   return (
-    <Container {...rest}>
+    <Container {...props}>
       <Content>
         <Form>
-          <FormInput type="string" defaultValue={carDetails.title} />
+          <FormInput name="title" type="string" value={carDetails.title} />
 
           <StyledCarDetails>
-            <FormInput type="string" defaultValue={carDetails.model} />
-            <FormInput type="number" defaultValue={carDetails.year} />
+            <FormInput name="model" type="string" value={carDetails.model} />
+            <FormInput name="year" type="number" value={carDetails.year} />
           </StyledCarDetails>
 
           <StyledCarDetails>
-            <FormInput type="string" defaultValue={carDetails.color} />
-            <FormInput type="string" defaultValue={carDetails.price} />
+            <FormInput name="color" type="string" value={carDetails.color} />
+            <FormInput name="price" type="string" value={carDetails.price} />
           </StyledCarDetails>
 
-          <StyledSelect>
+          <StyledSelect name="brand">
             {brands.map((brand) => (
               <option key={brand.id} value={brand.name}>
                 {brand.name}
@@ -74,15 +71,24 @@ const MainContent = ({ title, rest }) => {
           </StyledSelect>
 
           <StyledCarDetail>
-            <FormInput type="number" defaultValue={carDetails.km} />
+            <FormInput name="km" type="number" value={carDetails.km} />
           </StyledCarDetail>
 
           <StyledButtons>
             <SecondaryButtons>
-              <Button>Remover</Button>
-              <Button>Cancelar</Button>
+              <Link to="/">
+                <Button onClick={() => handleRemove(carDetails.id)}>
+                  Remover
+                </Button>
+              </Link>
+
+              <Link to="/">
+                <Button onClick={handleCancel}>Cancelar</Button>
+              </Link>
             </SecondaryButtons>
-            <Button>Salvar</Button>
+            <Link to="/">
+              <Button onClick={() => handleSave(carId)}>Salvar</Button>
+            </Link>
           </StyledButtons>
         </Form>
       </Content>

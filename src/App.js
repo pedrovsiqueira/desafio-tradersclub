@@ -4,10 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes/index';
 
 const App = () => (
-  <Router>
-    <Routes />
-    <GlobalStyle />
-  </Router>
+  <React.StrictMode>
+    <Router>
+      <Routes />
+      <GlobalStyle />
+    </Router>
+  </React.StrictMode>
 );
 
 export default App;

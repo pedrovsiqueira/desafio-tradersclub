@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Container, Content } from './styles';
+import { Context } from '../../context';
 
-const MainContent = (props) => {
+const MainContent = ({ rest }) => {
+  const { setCarId } = useContext(Context);
+  const { id } = useParams();
+
+  useEffect(() => {
+    setCarId(id);
+  }, [id, setCarId]);
+
   return (
-    <Container {...props}>
-      <Content>
-        <h1>hora de criar a tela de edição</h1>
-      </Content>
+    <Container {...rest}>
+      <Content></Content>
     </Container>
   );
 };

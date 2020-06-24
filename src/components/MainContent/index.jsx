@@ -7,7 +7,7 @@ const MainContent = ({ type, rest }) => {
   const { searchInputValue, cars } = useContext(Context);
 
   return (
-    <Container type={type} {...rest}>
+    <Container {...rest}>
       <Content>
         {!searchInputValue ? (
           <h1>

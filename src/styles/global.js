@@ -20,9 +20,8 @@ export default createGlobalStyle`
     max-width: 100%;
     background-color: #1f2d40;
     color:#f5f5f5;
-    font-family: 'Lobster Two', cursive;
-
-    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Lobster Two', cursive; */
+    font-family: 'Roboto', sans-serif;
   }
 
   a{

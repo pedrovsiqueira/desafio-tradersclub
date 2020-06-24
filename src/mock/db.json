@@ -45,26 +45,6 @@
       "color": "Preta",
       "km": 209022,
       "price": 8762.22
-    },
-    {
-      "title": "Fusca",
-      "model": "Chevrolet",
-      "year": "1990",
-      "brand": "Ford",
-      "color": "preto",
-      "price": "1900",
-      "km": "10000",
-      "id": 3
-    },
-    {
-      "title": "Daniel",
-      "model": "Ironhack",
-      "year": "1990",
-      "brand": "Nissan",
-      "color": "Preto",
-      "price": "190000",
-      "km": "1000000",
-      "id": 4
     }
   ]
 }
